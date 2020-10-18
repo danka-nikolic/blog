@@ -2,7 +2,11 @@ package blog.app;
 
 import blog.config.BlogConfiguration;
 import blog.controller.BlogController;
+import blog.model.BlogEntity;
+import blog.repo.BlogRepository;
 import io.dropwizard.Application;
+import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -12,24 +16,21 @@ public class BlogApplication extends Application<BlogConfiguration> {
         new BlogApplication().run(args);
     }
 
-    @Override
-    public String getName() {
-        return "hello-world";
-    }
-
+    private final HibernateBundle<BlogConfiguration> hibernate = new HibernateBundle<BlogConfiguration>(BlogEntity.class) {
+    	public DataSourceFactory getDataSourceFactory(BlogConfiguration configuration) {
+            return configuration.getDataSourceFactory();
+        }
+    };
+    
     @Override
     public void initialize(Bootstrap<BlogConfiguration> bootstrap) {
-        // nothing to do yet
+    	 bootstrap.addBundle(hibernate);
     }
 
     @Override
     public void run(BlogConfiguration configuration,
                     Environment environment) {
-        final BlogController resource = new BlogController(
-            configuration.getTemplate(),
-            configuration.getDefaultName()
-        );
-        environment.jersey().register(resource);
+        final BlogRepository blogRepository = new BlogRepository(hibernate.getSessionFactory());
+        environment.jersey().register(new BlogController(blogRepository));
     }
-
 }

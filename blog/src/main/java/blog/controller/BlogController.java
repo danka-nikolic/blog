@@ -1,35 +1,29 @@
 package blog.controller;
 
-import com.codahale.metrics.annotation.Timed;
-
-import blog.dto.BlogDto;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.Optional;
+
+import blog.model.BlogEntity;
+import blog.repo.BlogRepository;
+import io.dropwizard.hibernate.UnitOfWork;
 
 @Path("/blogs")
 @Produces(MediaType.APPLICATION_JSON)
 public class BlogController{
 	
-    private final String template;
-    private final String defaultName;
-    private final AtomicLong counter;
+    private final BlogRepository blogRepository;
 
-    public BlogController(String template, String defaultName) {
-        this.template = template;
-        this.defaultName = defaultName;
-        this.counter = new AtomicLong();
+    public BlogController(BlogRepository blogRepository) {
+        this.blogRepository = blogRepository;
     }
-
+    
     @GET
-    @Timed
-    public BlogDto sayHello(@QueryParam("name") Optional<String> name) {
-        final String value = String.format(template, name.orElse(defaultName));
-        return new BlogDto(counter.incrementAndGet(), value);
+    @Path("/{id}")
+    @UnitOfWork
+    public BlogEntity getBlogById(@PathParam("id") Long id) {
+        return blogRepository.findById(id);
     }
 }
