@@ -4,10 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="blog")
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "blog.model.BlogEntity.findAll",
+                        query = "SELECT b FROM BlogEntity b"
+                )
+        })
 public class BlogEntity {
 
 	@Id

@@ -1,5 +1,7 @@
 package blog.controller;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -29,6 +31,13 @@ public class BlogController{
     @UnitOfWork
     public BlogEntity getBlogById(@PathParam("id") Long id) {
         return blogRepository.findById(id);
+    }
+    
+    @GET
+    @Path("/getAll")
+    @UnitOfWork
+    public List<BlogEntity> getAllBlogs() {
+        return blogRepository.findAll();
     }
     
     @DELETE
