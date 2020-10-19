@@ -18,12 +18,23 @@ public class BlogRepository extends AbstractDAO<BlogEntity> {
         return get(id);
     }
 
-    public long create(BlogEntity blog) {
-        return persist(blog).getId();
+    public BlogEntity create(BlogEntity blog) {
+        return persist(blog);
+    }
+    
+    public BlogEntity update(BlogEntity blog) {
+        return persist(blog);
+    }
+    
+    public void delete(Long id) {
+    	final BlogEntity blog = findById(id);
+        currentSession().delete(blog);
     }
 
     @SuppressWarnings("unchecked")
     public List<BlogEntity> findAll() {
         return list((Query<BlogEntity>) namedQuery("blog.model.BlogEntity.findAll"));
     }
+    
+    
 }
