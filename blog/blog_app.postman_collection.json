@@ -50,7 +50,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"content\": \"novi_blog\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Moj blog\",\r\n    \"date\": \"2020-10-19\",\r\n    \"content\": \"Pozdrav svima! Ovo je moj prvi blog.\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -77,7 +77,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{  \r\n    \"id\": 1,\r\n    \"content\": \"najnoviji_blog\"\r\n}",
+					"raw": "{  \r\n    \"id\": 2,\r\n    \"title\": \"Moj drugi blog\",\r\n    \"date\": \"2020-10-20\",\r\n    \"content\": \"Pozdrav svima! Ovo je moj drugi blog.\"\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
