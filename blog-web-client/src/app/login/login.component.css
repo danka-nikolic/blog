@@ -1,0 +1,15 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 100%;
+    background: #eee;
+    margin: 300px auto;
+    position: relative;
+    text-align: left;
+}
+
+.login-container h2 {
+  text-align: center;
+}

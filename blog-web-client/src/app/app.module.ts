@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
