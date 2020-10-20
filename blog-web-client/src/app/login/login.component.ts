@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,13 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl: string;
+  returnUrl: '/blog-list';
 
-  constructor(private formBuilder: FormBuilder) { }
+  readonly HARDCODED_USERNAME = 'admin';
+  readonly HARDCODED_PASSWORD= 'admin123';
+
+  constructor(private formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -25,17 +30,21 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-    // this.submitted = true;
+    this.submitted = true;
 
-    // // reset alerts on submit
-    // this.alertService.clear();
+ 
+    if (this.loginForm.invalid) {
+        return;
+    }
 
-    // // stop here if form is invalid
-    // if (this.loginForm.invalid) {
-    //     return;
-    // }
+    this.loading = true;
+    const username = this.f.username.value; 
+    const password = this.f.password.value;
 
-    // this.loading = true;
+    if (this.HARDCODED_USERNAME === username && this.HARDCODED_PASSWORD === password) {
+      console.log('EVO GA');
+      this.router.navigate(['../blog-list']);
+    }
     // this.authenticationService.login(this.f.username.value, this.f.password.value)
     //     .pipe(first())
     //     .subscribe(
