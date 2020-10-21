@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'blog-list', component: BlogListComponent },
   { path: 'login', component: LoginComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' },  // Wildcard route for a 404 page
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({

@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl: '/blog-list';
+  readonly returnUrl: '/blog-list';
 
   readonly HARDCODED_USERNAME = 'admin';
   readonly HARDCODED_PASSWORD= 'admin123';
@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
     const password = this.f.password.value;
 
     if (this.HARDCODED_USERNAME === username && this.HARDCODED_PASSWORD === password) {
-      console.log('EVO GA');
       this.router.navigate(['../blog-list']);
     }
     // this.authenticationService.login(this.f.username.value, this.f.password.value)

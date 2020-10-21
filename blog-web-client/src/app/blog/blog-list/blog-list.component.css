@@ -1,0 +1,27 @@
+h2 {
+    background-color:lightblue;
+    color:teal;
+    margin: 25px;
+    text-align: center;
+      
+}
+
+p {
+    padding: 50px;
+    margin: 25px;
+    background-color:lightblue;
+    color: Teal;
+    font-size: medium;
+    line-height: 2;
+    margin-top: 1.6em;
+    margin-bottom: 0em;
+}
+
+.TextWrapRight {
+    float: right;
+    margin: 10px;
+}
+
+img {
+    margin-right: 30px !important;
+}
