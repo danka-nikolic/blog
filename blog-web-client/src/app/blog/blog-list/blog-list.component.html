@@ -7,3 +7,9 @@
     Ovde možete naći razne zanimljivosti o državama, gradovima, rekama, planinama, pustinjama itd. Ukoliko ste kreativni i želite da podelite sa nama zanimljive činjenice, pridružite nam se.
     
 </P>
+
+<ul>
+    <li *ngFor="let blog of blogs">
+      {{ blog.id }} {{ blog.title }}
+    </li>
+</ul>
