@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Blog } from './model/blog.model';
 
 @Component({
   selector: 'app-blog-list-item',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogListItemComponent implements OnInit {
 
-  title = '';
+  @Input() blog: Blog;
   
   constructor() { }
 

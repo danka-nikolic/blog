@@ -8,8 +8,7 @@
     
 </P>
 
-<ul>
-    <li *ngFor="let blog of blogs">
-      {{ blog.id }} {{ blog.title }}
-    </li>
-</ul>
+<div *ngFor="let blog of blogs">
+  <app-blog-list-item [blog]="blog">
+  </app-blog-list-item>
+</div>
