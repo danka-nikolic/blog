@@ -8,7 +8,8 @@
     
 </P>
 
-<div *ngFor="let blog of blogs">
-  <app-blog-list-item [blog]="blog">
-  </app-blog-list-item>
+<div class="d-flex flex-wrap" style="width: 300px">
+  <div *ngFor="let blog of blogs style="width: 10px">
+    <app-blog-list-item [blog]="blog"></app-blog-list-item>
+  </div>
 </div>

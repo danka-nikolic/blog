@@ -25,3 +25,7 @@ p {
 img {
     margin-right: 30px !important;
 }
+
+.col-md-3 {
+    width: 265px;
+}
