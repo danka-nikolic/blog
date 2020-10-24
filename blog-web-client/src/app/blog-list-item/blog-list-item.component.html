@@ -1,4 +1,9 @@
-<p>{{ blog.id }}</p>
-<p>{{ blog.title }}</p>
-<p>{{ blog.date }}</p>
-<p>{{ blog.content }}</p>
+<div class="card blogDiv" style="width: 18rem;">
+    <img class="card-img-top" src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{blog.title}}: {{blog.date}}</h5>
+      <p class="card-text">{{blog.content}}</p>
+      <a href="#" class="btn btn-success">View</a>
+      <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+</div>
