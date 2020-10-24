@@ -1,15 +1,23 @@
 <h2> BLOGEO </h2>
 
-<img class="TextWrapRight" src="https://www.w3schools.com/images/w3schools_green.jpg"> 
+<img class="TextWrapRight" src="https://www.w3schools.com/images/w3schools_green.jpg">
 
 <P>
     Blogeo je sajt koji se bavi izradom blogova na temu geografije. Možete dodati novi blog ili izmeniti ili obrisati postojeći.
     Ovde možete naći razne zanimljivosti o državama, gradovima, rekama, planinama, pustinjama itd. Ukoliko ste kreativni i želite da podelite sa nama zanimljive činjenice, pridružite nam se.
-    
+
 </P>
 
-<div class="d-flex flex-wrap" style="width: 300px">
-  <div *ngFor="let blog of blogs style="width: 10px">
-    <app-blog-list-item [blog]="blog"></app-blog-list-item>
+<div *ngFor="let blog of blogs; let i = index">
+  <div *ngIf="i % 3 == 0" class="row">
+      <div *ngIf="i < blogs.length" class="col-md-4">
+        <app-blog-list-item [blog]="blogs[i]"></app-blog-list-item>
+      </div>
+      <div *ngIf="i + 1 < blogs.length" class="col-md-4">
+        <app-blog-list-item [blog]="blogs[i + 1]"></app-blog-list-item>
+      </div>
+      <div *ngIf="i + 2 < blogs.length" class="col-md-4">
+        <app-blog-list-item [blog]="blogs[i + 2]"></app-blog-list-item>
+      </div>
   </div>
 </div>

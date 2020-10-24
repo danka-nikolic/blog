@@ -9,7 +9,7 @@ import { Blog } from './model/blog.model';
 export class BlogListItemComponent implements OnInit {
 
   @Input() blog: Blog;
-  
+
   constructor() { }
 
   ngOnInit(): void {
