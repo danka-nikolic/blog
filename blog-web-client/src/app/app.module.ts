@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BlogListItemComponent } from './blog-list-item/blog-list-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BlogListItemComponent } from './blog-list-item/blog-list-item.component
     BrowserModule,
     FormsModule, ReactiveFormsModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
