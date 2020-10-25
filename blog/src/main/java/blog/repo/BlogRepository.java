@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 
 import blog.model.BlogEntity;
 import io.dropwizard.hibernate.AbstractDAO;
+import io.dropwizard.hibernate.UnitOfWork;
 
 public class BlogRepository extends AbstractDAO<BlogEntity> {
 	
@@ -36,5 +37,8 @@ public class BlogRepository extends AbstractDAO<BlogEntity> {
         return list((Query<BlogEntity>) namedQuery("blog.model.BlogEntity.findAll"));
     }
     
-    
+    @UnitOfWork
+    public Long countBlogs() {
+    	return (Long) namedQuery("blog.model.BlogEntity.countBlogs").uniqueResult();
+    }
 }

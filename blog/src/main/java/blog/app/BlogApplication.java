@@ -11,6 +11,7 @@ import blog.config.BlogConfiguration;
 import blog.controller.BlogController;
 import blog.model.BlogEntity;
 import blog.repo.BlogRepository;
+import blog.task.InsertDefaultBlogsTask;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
@@ -51,5 +52,12 @@ public class BlogApplication extends Application<BlogConfiguration> {
 
         // Add URL mapping
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+        
+        try {
+        	new InsertDefaultBlogsTask(blogRepository, hibernate.getSessionFactory()).execute(null, null);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	System.out.println("#### PUKLO");
+        }
     }
 }

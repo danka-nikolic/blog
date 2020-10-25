@@ -18,6 +18,10 @@ import javax.persistence.Table;
                 @NamedQuery(
                         name = "blog.model.BlogEntity.findAll",
                         query = "SELECT b FROM BlogEntity b"
+                ),
+                @NamedQuery(
+                        name = "blog.model.BlogEntity.countBlogs",
+                        query = "SELECT count(b) FROM BlogEntity b"
                 )
         })
 public class BlogEntity {
@@ -31,6 +35,11 @@ public class BlogEntity {
     private String content;
 	
     public BlogEntity() {}
+    
+	public BlogEntity(String title, String content) {
+		this.title = title;
+		this.content = content;
+	}
 
 	public BlogEntity(Long id, LocalDate date, String title, String content) {
 		this.id = id;
