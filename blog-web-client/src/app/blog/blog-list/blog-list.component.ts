@@ -18,6 +18,10 @@ export class BlogListComponent implements OnInit {
   }
 
   initBlogList(): void {
+    this.reloadBlogList();
+  }
+
+  reloadBlogList() {
     this.blogService.getAllBlogs().subscribe(result => {
       this.blogs = result;
     });

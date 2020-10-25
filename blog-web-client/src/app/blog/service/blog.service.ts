@@ -11,4 +11,7 @@ export class BlogService {
         return this.http.get<any>(environment.apiUrl + '/blogs/getAll');
     }
 
+    deleteBlogById(id: number) {
+        return this.http.delete<any>(environment.apiUrl + '/blogs/' + id);
+    }
 }

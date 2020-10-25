@@ -11,13 +11,13 @@
 <div *ngFor="let blog of blogs; let i = index">
   <div *ngIf="i % 3 == 0" class="row">
       <div *ngIf="i < blogs.length" class="col-md-4">
-        <app-blog-list-item [blog]="blogs[i]"></app-blog-list-item>
+        <app-blog-list-item [blog]="blogs[i]" (updateEvent)="reloadBlogList()"></app-blog-list-item>
       </div>
       <div *ngIf="i + 1 < blogs.length" class="col-md-4">
-        <app-blog-list-item [blog]="blogs[i + 1]"></app-blog-list-item>
+        <app-blog-list-item [blog]="blogs[i + 1]" (updateEvent)="reloadBlogList()"></app-blog-list-item>
       </div>
       <div *ngIf="i + 2 < blogs.length" class="col-md-4">
-        <app-blog-list-item [blog]="blogs[i + 2]"></app-blog-list-item>
+        <app-blog-list-item [blog]="blogs[i + 2]" (updateEvent)="reloadBlogList()"></app-blog-list-item>
       </div>
   </div>
 </div>
