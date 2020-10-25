@@ -37,7 +37,6 @@ public class BlogController {
     @Path("/getAll")
     @UnitOfWork
     public List<BlogEntity> getAllBlogs() {
-    	System.out.println("### pozvan");
         return blogRepository.findAll();
     }
     
