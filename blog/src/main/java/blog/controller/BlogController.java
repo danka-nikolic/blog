@@ -18,7 +18,7 @@ import io.dropwizard.hibernate.UnitOfWork;
 
 @Path("/blogs")
 @Produces(MediaType.APPLICATION_JSON)
-public class BlogController{
+public class BlogController {
 	
     private final BlogRepository blogRepository;
 
@@ -37,6 +37,7 @@ public class BlogController{
     @Path("/getAll")
     @UnitOfWork
     public List<BlogEntity> getAllBlogs() {
+    	System.out.println("### pozvan");
         return blogRepository.findAll();
     }
     
