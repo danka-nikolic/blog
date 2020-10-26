@@ -1,5 +1,6 @@
 package blog.app;
 
+import java.io.PrintWriter;
 import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
@@ -54,7 +55,8 @@ public class BlogApplication extends Application<BlogConfiguration> {
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
         
         try {
-        	new InsertDefaultBlogsTask(blogRepository, hibernate.getSessionFactory()).execute(null, null);
+        	final PrintWriter consoleWritter = new PrintWriter(System.out);
+        	new InsertDefaultBlogsTask(blogRepository, hibernate.getSessionFactory()).execute(null, consoleWritter);
         } catch (Exception e) {
         	e.printStackTrace();
         	System.out.println("#### PUKLO");
