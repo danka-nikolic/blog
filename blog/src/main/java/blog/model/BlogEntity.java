@@ -1,6 +1,7 @@
 package blog.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
@@ -48,6 +51,16 @@ public class BlogEntity {
 		this.content = content;
 	}
 
+	@PrePersist
+    public void prePersist() {
+		this.date = LocalDate.now();
+    }
+ 
+    @PreUpdate
+    public void preUpdate() {
+    	this.date = LocalDate.now();
+    }
+	
 	public Long getId() {
 		return id;
 	}
