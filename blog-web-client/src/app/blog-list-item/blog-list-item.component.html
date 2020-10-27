@@ -1,7 +1,7 @@
 <div class="card blogDiv">
     <img class="card-img-top" src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title"><b>{{blog.title}}</b>: <i>{{blog.date | date: 'dd.MM.yyyy'}}</i></h5>
+      <h4 class="card-title"><b>{{blog.title}}</b>: <i>{{blog.date | date: 'dd.MM.yyyy'}}</i></h4>
       <p class="card-text">{{blog.content}}</p>
       <a href="#" class="btn btn-success view-btn">View</a>
       <button class="btn btn-danger delete-btn" (click)="deleteBlog(blog.id)">Delete</button>

@@ -9,6 +9,7 @@ import { BlogService } from '../service/blog.service';
 })
 export class BlogListComponent implements OnInit {
 
+  readonly appName = 'BloGEO';
   blogs: Blog[] = [];
 
   constructor(private blogService: BlogService) { }
