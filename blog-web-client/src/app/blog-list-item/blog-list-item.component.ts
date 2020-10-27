@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Blog } from './model/blog.model';
 import { BlogService } from '../blog/service/blog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-list-item',
@@ -13,9 +14,14 @@ export class BlogListItemComponent implements OnInit {
   updateEvent = new EventEmitter();
   @Input() blog: Blog;
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService,
+              private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  viewBlog(blog: Blog) {
+    this.router.navigate(['blog-view'], { state: { blogId: this.blog.id, isViewMode: true } });
   }
 
   deleteBlog(id: number) {

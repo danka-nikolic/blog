@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Blog } from 'src/app/blog-list-item/model/blog.model';
 import { BlogService } from '../service/blog.service';
 

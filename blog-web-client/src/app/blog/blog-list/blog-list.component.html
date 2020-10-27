@@ -1,15 +1,24 @@
-<h2> {{appName}} </h2>
+<h1> {{appName}} </h1>
 
 <img class="TextWrapRight" src="/assets/images/geo.jpg">
 
-<P>
+<p>
     <b>{{appName}}</b> je sajt zabavno-edukativnog karaktera koji se bavi izradom blogova na temu geografije.
      Posetioci će uz naše tekstove moći da se opuste i zabave, ali i da nauče nešto novo iz oblasti geografije i srodnih nauka. 
      Pokušaćemo da Vas otrgnemo od svakodnevne rutine i povedemo na virtuelno putovanje na neke od najzanimljivijih destinacija na svetu.
-     <br>  <br> <b>Uputstvo za korisnike bloga:</b><br>
-     Klikom na dugme <b>View</b> možete pristupiti celokupnom sadržaju bloga, dok se aktiviranjem dugmeta <b>Delete</b> blog briše iz baze. Ukoliko želite da dodate novi blog u bazu, kliknite na dugme <b>Add</b>. 
+     <br><br>
+     <i>"Svakome bi trebalo odrediti da putuje, s vremena na vreme. 
+       Čak i više: da nikada ne zastane duže nego što je neophodno. 
+       Čovek nije drvo, i vezanost je njegova nesreća, oduzima mu hrabrost, umanjuje sigurnost.
+       Vežući se za jedno mesto, čovek prihvata sve uslove, čak i nepovoljne, i sam sebe plaši neizvesnošću koja ga čeka.
+       Promena mu liči na napuštanje, na gubitak uloženog, neko drugi će zaposeti njegov osvojeni prostor, i on će počinjati iznova. 
+       Ukopavanje je pravi početak starenja, jer je čovek mlad sve dok se ne boji da započinje.
+       Ostajući, čovek trpi ili napada.Odlazeći, čuva slobodu, spreman je da promjeni mesto i nametnute uslove." 
+       (Meša Selimović)
+     </i>
+     
 
-</P>
+</p>
 
 <div *ngFor="let blog of blogs; let i = index">
   <div *ngIf="i % 3 == 0" class="row">
