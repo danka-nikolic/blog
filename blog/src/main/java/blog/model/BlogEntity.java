@@ -34,21 +34,24 @@ public class BlogEntity {
     private Long id;
 	private LocalDate date;
 	private String title;
+	private String imgUrl;
 	@Lob
     private String content;
 	
     public BlogEntity() {}
     
-	public BlogEntity(String title, String content) {
+	public BlogEntity(String title, String content, String imgUrl) {
 		this.title = title;
 		this.content = content;
+		this.imgUrl = imgUrl;
 	}
 
-	public BlogEntity(Long id, LocalDate date, String title, String content) {
+	public BlogEntity(Long id, LocalDate date, String title, String content, String imgUrl) {
 		this.id = id;
 		this.date = date;
 		this.title = title;
 		this.content = content;
+		this.imgUrl = imgUrl;
 	}
 
 	@PrePersist
@@ -91,5 +94,13 @@ public class BlogEntity {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 }

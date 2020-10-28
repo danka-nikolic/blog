@@ -3,4 +3,5 @@ export class Blog {
     title: string;
     date: Date;
     content: string;
+    imgUrl: string;
 }
