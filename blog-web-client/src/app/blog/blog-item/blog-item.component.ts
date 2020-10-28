@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Blog } from 'src/app/blog-list-item/model/blog.model';
+import { Blog } from 'src/app/blog/blog-list-item/model/blog.model';
 import { BlogService } from '../service/blog.service';
 
 @Component({
@@ -15,7 +15,6 @@ export class BlogItemComponent implements OnInit {
   constructor(private blogService: BlogService,
               private router: Router) {
     this.blog = this.router.getCurrentNavigation().extras.state.blog;
-    const isViewMode = this.router.getCurrentNavigation().extras.state.isViewMode;
   }
 
   ngOnInit(): void {

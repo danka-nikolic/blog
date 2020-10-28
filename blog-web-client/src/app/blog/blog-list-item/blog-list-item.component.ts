@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Blog } from './model/blog.model';
-import { BlogService } from '../blog/service/blog.service';
+import { BlogService } from '../service/blog.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ export class BlogListItemComponent implements OnInit {
   }
 
   viewBlog(blog: Blog) {
-    this.router.navigate(['blog-view'], { state: { blog: this.blog, isViewMode: true } });
+    this.router.navigate(['blog-view'], { state: { blog: this.blog } });
   }
 
   deleteBlog(id: number) {
