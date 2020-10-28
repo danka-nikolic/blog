@@ -4,7 +4,7 @@
       <h4 class="card-title"><b>{{blog.title}}</b> <br> <i>{{blog.date | date: 'dd.MM.yyyy'}}</i></h4>
       <br>
       <img class="center-block" src="{{blog.imgUrl}}" alt="Card image cap">
-      <p class="card-text">{{blog.content}}</p>
+      <p class="card-text">{{ blog.content | truncate : 300 : "..." }}</p>
       <button class="btn btn-success view-btn" (click)="viewBlog(blog)">View</button>
       <button class="btn btn-danger delete-btn" (click)="deleteBlog(blog.id)">Delete</button>
     </div>
