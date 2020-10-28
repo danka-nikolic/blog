@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Blog } from 'src/app/blog/blog-list-item/model/blog.model';
 import { BlogService } from '../service/blog.service';
 
@@ -12,7 +13,8 @@ export class BlogListComponent implements OnInit {
   readonly appName = 'BloGEO';
   blogs: Blog[] = [];
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.initBlogList();
@@ -28,4 +30,7 @@ export class BlogListComponent implements OnInit {
     });
   }
 
+  addBlog(): void {
+    this.router.navigate(['../blog-add']);
+  }
 }

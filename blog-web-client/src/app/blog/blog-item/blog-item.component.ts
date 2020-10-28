@@ -28,7 +28,7 @@ export class BlogItemComponent implements OnInit {
   }
 
   editBlog(blog: Blog): void {
-   
+    this.router.navigate(['../blog-edit']);
   }
 
 }

@@ -11,6 +11,7 @@ import { BlogListItemComponent } from './blog/blog-list-item/blog-list-item.comp
 import { HttpClientModule } from '@angular/common/http';
 import { BlogItemComponent } from './blog/blog-item/blog-item.component';
 import { TruncateModule } from 'ng2-truncate';
+import { BlogAddOrEditComponent } from './blog/blog-add-or-edit/blog-add-or-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TruncateModule } from 'ng2-truncate';
     LoginComponent,
     BlogListComponent,
     BlogListItemComponent,
-    BlogItemComponent
+    BlogItemComponent,
+    BlogAddOrEditComponent
   ],
   imports: [
     BrowserModule,
