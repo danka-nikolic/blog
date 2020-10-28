@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BlogListItemComponent } from './blog-list-item/blog-list-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogItemComponent } from './blog/blog-item/blog-item.component';
+import { TruncateModule } from 'ng2-truncate';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BlogItemComponent } from './blog/blog-item/blog-item.component';
     FormsModule, ReactiveFormsModule,
     CommonModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    TruncateModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

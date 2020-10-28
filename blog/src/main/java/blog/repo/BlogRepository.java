@@ -11,8 +11,6 @@ import io.dropwizard.hibernate.UnitOfWork;
 
 public class BlogRepository extends AbstractDAO<BlogEntity> {
 	
-	private static final int CONTENT_MAX_LENGTH = 300;
-
     public BlogRepository(SessionFactory factory) {
         super(factory);
     }
@@ -36,17 +34,7 @@ public class BlogRepository extends AbstractDAO<BlogEntity> {
 
     @SuppressWarnings("unchecked")
     public List<BlogEntity> findAll() {
-        final List<BlogEntity> blogs = list((Query<BlogEntity>) namedQuery("blog.model.BlogEntity.findAll"));
-        
-        for (BlogEntity blog : blogs) {
-        	final String content = blog.getContent();
-        	if (content != null && content.length() > CONTENT_MAX_LENGTH) {
-        		final String shortContent = content.substring(0, CONTENT_MAX_LENGTH) + "...";
-        		blog.setContent(shortContent);
-        	}
-        }
-        
-        return blogs;
+        return list((Query<BlogEntity>) namedQuery("blog.model.BlogEntity.findAll"));
     }
     
     @UnitOfWork
