@@ -41,3 +41,8 @@ img {
     border: solid teal;
             
 }
+
+.logout {
+    float: right;
+    margin-right: 30px;
+}
