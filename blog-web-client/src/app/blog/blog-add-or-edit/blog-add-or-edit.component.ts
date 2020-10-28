@@ -80,6 +80,9 @@ export class BlogAddOrEditComponent implements OnInit {
     if (this.isAddMode) {
       this.router.navigate(['../blog-list']);
     }
+    if (this.isEditMode) {
+      this.router.navigate(['blog-view'], { state: { blog: this.blog } });
+    }
   }
 
   setButtonName(): void {

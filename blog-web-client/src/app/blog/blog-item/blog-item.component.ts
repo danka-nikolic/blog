@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Blog } from 'src/app/blog/blog-list-item/model/blog.model';
 import { BlogService } from '../service/blog.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-blog-item',
@@ -13,7 +14,8 @@ export class BlogItemComponent implements OnInit {
   blog: Blog;
 
   constructor(private blogService: BlogService,
-              private router: Router) {
+              private router: Router,
+              private location: Location) {
     this.blog = this.router.getCurrentNavigation().extras.state.blog;
   }
 
@@ -31,4 +33,7 @@ export class BlogItemComponent implements OnInit {
     this.router.navigate(['blog-edit'], { state: { isEditMode: true, blog: this.blog } });
   }
 
+  goBackToMainPage(): void {
+    this.router.navigate(['../blog-list']);
+  }
 }
