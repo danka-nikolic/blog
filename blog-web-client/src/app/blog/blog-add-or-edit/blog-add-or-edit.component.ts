@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Blog } from '../blog-list-item/model/blog.model';
+import { BlogService } from '../service/blog.service';
 
 @Component({
   selector: 'app-blog-add-or-edit',
@@ -19,7 +20,8 @@ export class BlogAddOrEditComponent implements OnInit {
   form: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private blogService: BlogService) {
     const state = this.router.getCurrentNavigation().extras.state;
     this.blog = state.blog;
     if (state.isEditMode != null) {
@@ -36,14 +38,33 @@ export class BlogAddOrEditComponent implements OnInit {
 
   createForm(): void {
     this.form = this.fb.group({
-      title: ['neki naslov', [Validators.required]],
-      content: ['neki sadrzaj', [Validators.required]],
-      imgUrl: ['neki url', [Validators.required]]
+      title: ['', [Validators.required]],
+      content: ['', [Validators.required]],
+      imgUrl: ['', [Validators.required]]
     });
   }
 
+  prepare(): Blog {
+    const controls = this.form.controls;
+    const blog = new Blog();
+
+    if (this.blog && this.blog.id) {
+      blog.id = this.blog.id;
+    }
+    blog.title = controls.title.value;
+    blog.content = controls.content.value;
+    blog.imgUrl = controls.imgUrl.value;
+
+    return blog;
+  }
+
   onSubmit(): void {
-    console.log('akcija ADD');
+    const blog = this.prepare();
+    if (this.isAddMode) {
+      this.blogService.addBlog(blog).subscribe(result => {
+        this.router.navigate(['../blog-list']);
+      });
+    }
   }
 
   onCancel(): void {

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Blog } from '../blog-list-item/model/blog.model';
 
 @Injectable({ providedIn: 'root'})
 export class BlogService {
@@ -17,5 +18,9 @@ export class BlogService {
 
     getBlogById(id: number) {
         return this.http.get<any>(environment.apiUrl + '/blogs/' + id);
+    }
+
+    addBlog(blog: Blog) {
+        return this.http.post<any>(environment.apiUrl + '/blogs', blog);
     }
 }
