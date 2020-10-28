@@ -31,6 +31,6 @@ export class BlogListComponent implements OnInit {
   }
 
   addBlog(): void {
-    this.router.navigate(['../blog-add']);
+    this.router.navigate(['../blog-add'], { state: { isAddMode: true } });
   }
 }
