@@ -8,15 +8,11 @@
 <p>{{blog.content}}</p>
 
 <div class="navbar navbar-fixed-bottom">
-        <!--<button class="btn btn-primary" (click)="editBlog(blog)">Edit</button>
-        <button class="btn btn-danger" (click)="deleteBlog(blog.id)">Delete</button> -->
-        <!--<button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger">Delete</button>-->
-        <div class="container">
-            <ul class="nav">
-                <li><button class="btn btn-primary">Edit</button></li>
-                <li><button class="btn btn-danger">Delete</button></li>
-            </ul>
-        </div>
+    <div class="container">
+        <ul class="nav">
+            <li><button class="btn btn-primary" (click)="editBlog(blog)">Edit</button></li>
+            <li><button class="btn btn-danger" (click)="deleteBlog(blog.id)">Delete</button></li>
+        </ul>
+    </div>
 </div>
 

@@ -22,4 +22,14 @@ export class BlogItemComponent implements OnInit {
 
   }
 
+  deleteBlog(id: number): void {
+    this.blogService.deleteBlogById(id).subscribe(result => {
+      this.router.navigate(['../blog-list']);
+    });
+  }
+
+  editBlog(blog: Blog): void {
+   
+  }
+
 }
