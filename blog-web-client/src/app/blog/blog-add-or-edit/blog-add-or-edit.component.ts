@@ -11,6 +11,7 @@ import { BlogService } from '../service/blog.service';
 })
 export class BlogAddOrEditComponent implements OnInit {
 
+  buttonDisplayName = '';
   imageUrlPath = '';
 
   isEditMode = false;
@@ -33,14 +34,17 @@ export class BlogAddOrEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setButtonName();
     this.createForm();
   }
 
   createForm(): void {
+    const imageValue = this.isEditMode ? this.blog.imgUrl : '';
+    this.imageUrlPath = imageValue;
     this.form = this.fb.group({
-      title: ['', [Validators.required]],
-      content: ['', [Validators.required]],
-      imgUrl: ['', [Validators.required]]
+      title: [this.isEditMode ? this.blog.title : '', [Validators.required]],
+      content: [this.isEditMode ? this.blog.content : '', [Validators.required]],
+      imgUrl: [imageValue, [Validators.required]]
     });
   }
 
@@ -65,11 +69,24 @@ export class BlogAddOrEditComponent implements OnInit {
         this.router.navigate(['../blog-list']);
       });
     }
+    if (this.isEditMode) {
+      this.blogService.editBlog(blog).subscribe(result => {
+        this.router.navigate(['blog-view'], { state: { blog: result } });
+      });
+    }
   }
 
   onCancel(): void {
     if (this.isAddMode) {
       this.router.navigate(['../blog-list']);
+    }
+  }
+
+  setButtonName(): void {
+    if (this.isEditMode) {
+      this.buttonDisplayName = 'Edit';
+    } else {
+      this.buttonDisplayName = 'Add';
     }
   }
 }

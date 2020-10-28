@@ -23,4 +23,8 @@ export class BlogService {
     addBlog(blog: Blog) {
         return this.http.post<any>(environment.apiUrl + '/blogs', blog);
     }
+
+    editBlog(blog: Blog) {
+        return this.http.put<any>(environment.apiUrl + '/blogs', blog);
+    }
 }
