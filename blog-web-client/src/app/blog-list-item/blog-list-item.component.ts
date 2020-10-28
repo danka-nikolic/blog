@@ -21,7 +21,7 @@ export class BlogListItemComponent implements OnInit {
   }
 
   viewBlog(blog: Blog) {
-    this.router.navigate(['blog-view'], { state: { blogId: this.blog.id, isViewMode: true } });
+    this.router.navigate(['blog-view'], { state: { blog: this.blog, isViewMode: true } });
   }
 
   deleteBlog(id: number) {

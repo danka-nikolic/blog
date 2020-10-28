@@ -10,19 +10,16 @@ import { BlogService } from '../service/blog.service';
 })
 export class BlogItemComponent implements OnInit {
 
-  blog: Blog = null;
-  blogId: number = null;
+  blog: Blog;
 
   constructor(private blogService: BlogService,
               private router: Router) {
-    this.blogId = this.router.getCurrentNavigation().extras.state.blogId;
+    this.blog = this.router.getCurrentNavigation().extras.state.blog;
     const isViewMode = this.router.getCurrentNavigation().extras.state.isViewMode;
   }
 
   ngOnInit(): void {
-    this.blogService.getBlogById(this.blogId).subscribe(result => {
-      this.blog = result;
-    });
+
   }
 
 }
