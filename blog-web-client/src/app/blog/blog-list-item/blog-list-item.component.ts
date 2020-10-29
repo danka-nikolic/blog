@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Blog } from './model/blog.model';
 import { BlogService } from '../service/blog.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-blog-list-item',
@@ -15,7 +16,8 @@ export class BlogListItemComponent implements OnInit {
   @Input() blog: Blog;
 
   constructor(private blogService: BlogService,
-              private router: Router) { }
+              private router: Router,
+              private toastrService: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +28,7 @@ export class BlogListItemComponent implements OnInit {
 
   deleteBlog(id: number) {
     this.blogService.deleteBlogById(id).subscribe(result => {
+        this.toastrService.success('Blog successfully deleted!');
         this.updateEvent.emit();
     });
   }

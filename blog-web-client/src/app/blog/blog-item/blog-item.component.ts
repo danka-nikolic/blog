@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Blog } from 'src/app/blog/blog-list-item/model/blog.model';
 import { BlogService } from '../service/blog.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-blog-item',
@@ -15,7 +15,7 @@ export class BlogItemComponent implements OnInit {
 
   constructor(private blogService: BlogService,
               private router: Router,
-              private location: Location) {
+              private toastrService: ToastrService) {
     this.blog = this.router.getCurrentNavigation().extras.state.blog;
   }
 
@@ -25,6 +25,7 @@ export class BlogItemComponent implements OnInit {
 
   deleteBlog(id: number): void {
     this.blogService.deleteBlogById(id).subscribe(result => {
+      this.toastrService.success('Blog successfully deleted!');
       this.router.navigate(['../blog-list']);
     });
   }

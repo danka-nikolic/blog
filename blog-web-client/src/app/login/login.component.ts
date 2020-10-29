@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../blog/service/user.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private userService: UserService) { }
+              private userService: UserService,
+              private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     if (this.userService.isUserLoggedIn()) {
@@ -35,8 +37,6 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-
- 
     if (this.loginForm.invalid) {
         return;
     }
@@ -47,17 +47,10 @@ export class LoginComponent implements OnInit {
     if (this.HARDCODED_USERNAME === username && this.HARDCODED_PASSWORD === password) {
       this.userService.logginUser(username, password);
       this.router.navigate(['../blog-list']);
+    } else {
+      this.toastrService.error('Wrong username or password! Please, try again.')
     }
-    // this.authenticationService.login(this.f.username.value, this.f.password.value)
-    //     .pipe(first())
-    //     .subscribe(
-    //         data => {
-    //             this.router.navigate([this.returnUrl]);
-    //         },
-    //         error => {
-    //             this.alertService.error(error);
-    //             this.loading = false;
-    //         });
-}
+
+  }
 
 }

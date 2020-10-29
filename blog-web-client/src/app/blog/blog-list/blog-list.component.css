@@ -36,9 +36,9 @@ img {
 
 .button-add {
     float: right;
-    color: teal;
+    color: rgb(1, 53, 1);
     background-color: lightgreen;
-    border: solid teal;
+    border: solid green;
             
 }
 

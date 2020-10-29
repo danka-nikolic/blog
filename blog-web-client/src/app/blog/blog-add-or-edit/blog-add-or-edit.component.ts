@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Blog } from '../blog-list-item/model/blog.model';
 import { BlogService } from '../service/blog.service';
 
@@ -22,7 +23,8 @@ export class BlogAddOrEditComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private blogService: BlogService) {
+              private blogService: BlogService,
+              private toastrService: ToastrService) {
     const state = this.router.getCurrentNavigation().extras.state;
     this.blog = state.blog;
     if (state.isEditMode != null) {
@@ -66,12 +68,14 @@ export class BlogAddOrEditComponent implements OnInit {
     const blog = this.prepare();
     if (this.isAddMode) {
       this.blogService.addBlog(blog).subscribe(result => {
+        this.toastrService.success('Blog successfully added!');
         this.router.navigate(['../blog-list']);
       });
     }
     if (this.isEditMode) {
       this.blogService.editBlog(blog).subscribe(result => {
-        this.router.navigate(['blog-view'], { state: { blog: result } });
+        this.toastrService.success('Blog successfully edited!');
+        this.router.navigate(['../blog-view'], { state: { blog: result } });
       });
     }
   }

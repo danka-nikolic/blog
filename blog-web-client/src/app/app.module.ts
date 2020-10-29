@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BlogItemComponent } from './blog/blog-item/blog-item.component';
 import { TruncateModule } from 'ng2-truncate';
 import { BlogAddOrEditComponent } from './blog/blog-add-or-edit/blog-add-or-edit.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BlogAddOrEditComponent } from './blog/blog-add-or-edit/blog-add-or-edit
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    TruncateModule 
+    TruncateModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
