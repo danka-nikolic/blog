@@ -11,8 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BlogListItemComponent implements OnInit {
 
-  @Output() 
-  updateEvent = new EventEmitter();
+  @Output() updateEvent = new EventEmitter();
   @Input() blog: Blog;
 
   constructor(private blogService: BlogService,
@@ -27,7 +26,7 @@ export class BlogListItemComponent implements OnInit {
   }
 
   deleteBlog(id: number) {
-    this.blogService.deleteBlogById(id).subscribe(result => {
+    this.blogService.deleteBlogById(id).subscribe(() => {
         this.toastrService.success('Blog successfully deleted!');
         this.updateEvent.emit();
     });
