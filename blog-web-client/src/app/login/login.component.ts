@@ -11,8 +11,6 @@ import { UserService } from '../blog/service/user.service';
 export class LoginComponent implements OnInit {
   
   loginForm: FormGroup;
-  loading = false;
-  submitted = false;
   readonly returnUrl: '/blog-list';
 
   readonly HARDCODED_USERNAME = 'admin';
@@ -37,14 +35,12 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
-    this.submitted = true;
 
  
     if (this.loginForm.invalid) {
         return;
     }
 
-    this.loading = true;
     const username = this.f.username.value; 
     const password = this.f.password.value;
 
