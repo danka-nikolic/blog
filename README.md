@@ -21,9 +21,9 @@
 	
 	1. Potrebno je da imate instaliran Node.js.
 	
-	2. Potrebno je instalirati potrebne pakete komandom `npm install` (u folderu blog-web-client)
+	2. Potrebno je instalirati potrebne pakete komandom `npm install` (u folderu blog-web-client).
 	
-	3. Pokrenuti frontend aplikaciju komandom `ng serve` (u folderu blog-web-client)
+	3. Pokrenuti frontend aplikaciju komandom `ng serve` (u folderu blog-web-client).
 	
 	- Otvoriti browser na putanji `http://localhost:4200/`.
 	
