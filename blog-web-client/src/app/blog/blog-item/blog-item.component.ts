@@ -31,7 +31,7 @@ export class BlogItemComponent implements OnInit {
   }
 
   editBlog(blog: Blog): void {
-    this.router.navigate(['blog-edit'], { state: { isEditMode: true, blog: this.blog } });
+    this.router.navigate(['blog-edit', this.blog.id], { state: { isEditMode: true, blog: this.blog } });
   }
 
   goBackToMainPage(): void {

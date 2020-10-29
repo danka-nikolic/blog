@@ -23,7 +23,7 @@ export class BlogListItemComponent implements OnInit {
   }
 
   viewBlog(blog: Blog) {
-    this.router.navigate(['blog-view'], { state: { blog: this.blog } });
+    this.router.navigate(['blog-view', this.blog.id], { state: { blog: this.blog } });
   }
 
   deleteBlog(id: number) {

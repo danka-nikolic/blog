@@ -75,7 +75,7 @@ export class BlogAddOrEditComponent implements OnInit {
     if (this.isEditMode) {
       this.blogService.editBlog(blog).subscribe(result => {
         this.toastrService.success('Blog successfully edited!');
-        this.router.navigate(['../blog-view'], { state: { blog: result } });
+        this.router.navigate(['../blog-view', result.id], { state: { blog: result } });
       });
     }
   }
@@ -85,7 +85,7 @@ export class BlogAddOrEditComponent implements OnInit {
       this.router.navigate(['../blog-list']);
     }
     if (this.isEditMode) {
-      this.router.navigate(['blog-view'], { state: { blog: this.blog } });
+      this.router.navigate(['blog-view', this.blog.id], { state: { blog: this.blog } });
     }
   }
 

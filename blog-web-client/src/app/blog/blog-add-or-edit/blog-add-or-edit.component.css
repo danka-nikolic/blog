@@ -6,6 +6,10 @@ form {
     margin-bottom:5px;
 }
 
+.btn {
+    color:black;
+}
+
 img {
     width: 20%;
     height: 20%;
