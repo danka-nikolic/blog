@@ -44,9 +44,9 @@ export class BlogAddOrEditComponent implements OnInit {
     const imageValue = this.isEditMode ? this.blog.imgUrl : '';
     this.imageUrlPath = imageValue;
     this.form = this.fb.group({
-      title: [this.isEditMode ? this.blog.title : '', [Validators.required]],
-      content: [this.isEditMode ? this.blog.content : '', [Validators.required]],
-      imgUrl: [imageValue, [Validators.required]]
+      title: [this.isEditMode ? this.blog.title : '', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(200)])],
+      content: [this.isEditMode ? this.blog.content : '', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(6000)])],
+      imgUrl: [imageValue, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(2000)])]
     });
   }
 
