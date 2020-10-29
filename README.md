@@ -9,6 +9,7 @@
 
 	1. Potrebno je da imate instaliranu PostgreSQL bazu koja radi na portu 5432. 
 	   Zatim ručno kreirati bazu pod nazivom `blog_db` (pomoću pgAdmin-a/DbVisualizer-a/nekog trećeg db client-a).
+	   (Ukoliko username i password za bazu nisu `postgres`/`postgres`, ili baza nije na portu 5432, ili se zove drugačije, potrebno je zameniti podatke u ../blog/blog.yml fajlu)
 	
 	2. Potrebno je zapakovati backend aplikaciju komandom `mvn clean package` (u blog folderu).
 	
